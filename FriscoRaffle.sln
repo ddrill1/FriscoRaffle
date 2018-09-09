@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriscoRaffle", "FriscoRaffle\FriscoRaffle.csproj", "{BBDD7679-CD1D-43A2-AB06-6E4946920B9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBDD7679-CD1D-43A2-AB06-6E4946920B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDD7679-CD1D-43A2-AB06-6E4946920B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDD7679-CD1D-43A2-AB06-6E4946920B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDD7679-CD1D-43A2-AB06-6E4946920B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D232F77C-7D64-467E-92D4-E29D865DE439}
+	EndGlobalSection
+EndGlobal

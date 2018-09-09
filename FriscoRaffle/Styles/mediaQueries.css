@@ -1,0 +1,71 @@
+﻿
+/*small large tablets and above: 481-767 px */
+@media only screen and (max-width: 1200px) {
+    .gezza-field {
+        padding: 0 2%;
+        display: inline-block;
+    }
+
+    .inputLabel {
+        padding: 0 2%;
+    }
+}
+/*small tablets/large tablet: 0-481 px */
+@media only screen and (max-width: 1023px) {
+    .gezza-field {
+        width:420px;
+        height:50px;
+        padding: 0 2%;
+        display: inline-block;
+    }
+
+    .inputLabel {
+        padding: 0 2%;
+    }
+}
+}
+/*small phones/tablets: 481-767 px */ 
+@media only screen and (max-width: 767px) {
+    .gezza-field {
+        width: 365px;
+        height: 37px;
+        padding: 0 2%;
+        display: inline-block;
+        font-size: medium;
+    }
+
+    .inputLabel {
+        padding: 0 2%;
+    }
+
+    .divReferral {
+        width: 350px;
+    }
+
+
+}
+
+/*small phones only: 0-481 px */
+@media only screen and (max-width: 480px) {
+    .gezza-field {
+        width: 250px;
+        height: 35px;
+        padding: 0 2%;
+        display: inline-block;
+        font-size: small;
+    }
+
+    .inputLabel {
+        font-size: small;
+        padding: 0 2%;
+    }
+    .divReferral {
+        width: 250px;
+    }
+
+    h1
+    {
+        font-size:large;
+    }
+}
+

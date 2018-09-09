@@ -1,0 +1,66 @@
+﻿body {
+
+}
+
+#form-group
+{
+    display: inline-block;
+    margin-right: 10px;
+    float:left;
+}
+
+#form-group label{
+    display: block;
+}
+
+#container
+{
+    width:165px;
+    height:75px;
+    position:relative;
+    top: -2px;
+    left: 0px;
+}
+
+.box
+{
+    position:absolute;
+    width:165px;
+    height:75px;
+}
+.responsiveTextbox
+{
+    width:100%;
+    background-color:white;
+}
+.lastName
+{
+    left: 175px;
+}
+.phoneNumber
+{
+    top:100px;
+}
+.top {
+    top: 0
+}
+.middle {
+    top: 50%;
+    margin-top: -10px; /*half of the .box height*/
+}
+.bottom {
+    bottom: 0
+}
+.left {
+    left: 0;
+}
+.center {
+    left: 50%;
+    margin-left: -10px; /*half of the .box width*/
+}
+.right {
+    right: 0;
+}
+
+
+

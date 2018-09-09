@@ -1,0 +1,202 @@
+﻿body {
+    background-image: url('/Images/FriscoLogo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    background-position:center center;
+    background-color:black;
+    font-family:'Arial Rounded MT';
+    padding:4px;
+}
+
+
+#img
+{
+    height: 54px;
+    width:54px;
+}
+
+#wrapper {
+    border-width: 0px;
+    border-radius: 20px;
+    background-color: rgba(192, 192, 192, 0.6);
+    padding: 20px;
+    resize:both;
+    /*width:1250px;*/
+}
+
+#content {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    resize: both;
+}
+
+#content-main {
+    margin-left: 450px;
+    width: 400px;
+    height: 150px;
+    resize: both;
+}
+
+#firstName {
+    height: 25px;
+    width: 158px;
+    padding: 50px;
+    position: absolute;
+    right: 722px;
+    top: 94px;
+}
+
+#lastName {
+    height: 103px;
+    width: 212px;
+    padding: 50px;
+}
+
+input[type=checkbox]:not(old),
+input[type=radio ]:not(old) {
+    width: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio ]:not(old) + label {
+    display: inline-block;
+    margin-left: -28px;
+    padding-left: 28px;
+    line-height: 24px;
+}
+
+input[type=checkbox]:not(old):checked + label {
+    background-position: 0 -24px;
+}
+
+input[type=radio]:not(old):checked + label {
+    background-position: 0 -48px;
+}
+
+.inputLabel {
+    display: inline-block;
+    text-align: left;
+    font-size:medium;
+    width: 200px;
+}
+
+
+.textbox
+{
+    background-color:white;
+    opacity:0.0;
+}
+
+.box {
+    position: absolute;
+    width: 165px;
+    height: 75px;
+}
+
+.lastName {
+    left: 175px;
+}
+
+.phoneNumber {
+    top: 100px;
+}
+
+.top {
+    top: 0
+}
+
+.middle {
+    top: 50%;
+    margin-top: -10px; /*half of the .box height*/
+}
+
+.bottom {
+    bottom: 0
+}
+
+.left {
+    left: 0;
+}
+
+.center {
+    left: 50%;
+    margin-left: -10px; /*half of the .box width*/
+}
+
+.right {
+    right: 0;
+}
+
+.gezza-form {
+    width: 894px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.gezza-field {
+    width: 500px;
+    height: 55px;
+    margin-bottom: 10px;
+    border: 1px solid #d9e7f1;
+    font-size: large;
+    display: inline-block;
+}
+
+.gezza-comments {
+    width: 437px;
+    height: 300px;
+}
+.radioContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.radioCheckmark {
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+.radioContainer:hover input ~ .radioCheckmark {
+    background-color: #ccc;
+}
+.radioContainer input:checked ~ .radioCheckmark {
+    background-color: #2196F3;
+}
+.radioCheckmark:after {
+    content: "";
+    display: none;
+}
+.radioContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+.radioContainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.divReferral
+{
+    width:500px;
+}
+.alert{
+    display:none;
+}
+

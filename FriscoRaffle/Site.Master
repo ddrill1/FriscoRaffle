@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FriscoRaffle.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="Styles/StyleSheet.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Styles/mediaQueries.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %>FRAFFLE</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FriscoDBConnectionString %>" DeleteCommand="DELETE FROM [LeadData] WHERE [Id] = @Id" InsertCommand="INSERT INTO [LeadData] ([Id], [FirstName], [LastName], [Phone], [Email], [Referral]) VALUES (@Id, @FirstName, @LastName, @Phone, @Email, @Referral)" SelectCommand="SELECT * FROM [LeadData]" UpdateCommand="UPDATE [LeadData] SET [FirstName] = @FirstName, [LastName] = @LastName, [Phone] = @Phone, [Email] = @Email, [Referral] = @Referral WHERE [Id] = @Id">
+            <DeleteParameters>
+                <asp:Parameter Name="Id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Id" Type="Int32" />
+                <asp:Parameter Name="FirstName" Type="String" />
+                <asp:Parameter Name="LastName" Type="String" />
+                <asp:Parameter Name="Phone" Type="String" />
+                <asp:Parameter Name="Email" Type="String" />
+                <asp:Parameter Name="Referral" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="FirstName" Type="String" />
+                <asp:Parameter Name="LastName" Type="String" />
+                <asp:Parameter Name="Phone" Type="String" />
+                <asp:Parameter Name="Email" Type="String" />
+                <asp:Parameter Name="Referral" Type="Boolean" />
+                <asp:Parameter Name="Id" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                
+            </Scripts>
+        </asp:ScriptManager>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
