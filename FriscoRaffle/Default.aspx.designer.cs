@@ -112,6 +112,33 @@ namespace FriscoRaffle {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// lblLead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLead;
+        
+        /// <summary>
+        /// rdbYesLead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbYesLead;
+        
+        /// <summary>
+        /// rdbNoLead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbNoLead;
+        
+        /// <summary>
         /// lblReferral control.
         /// </summary>
         /// <remarks>

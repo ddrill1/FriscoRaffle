@@ -9,6 +9,9 @@
     padding:4px;
 }
 
+label {
+    color:black;
+}
 
 #img
 {
@@ -19,9 +22,10 @@
 #wrapper {
     border-width: 0px;
     border-radius: 20px;
-    background-color: rgba(192, 192, 192, 0.6);
+    background-color: rgba(255,255,255,0.5);
     padding: 20px;
-    resize:both;
+    resize: both;
+    /*opacity: 0.2;*/
     /*width:1250px;*/
 }
 
@@ -195,8 +199,16 @@ input[type=radio]:not(old):checked + label {
 .divReferral
 {
     width:500px;
+    font-size:medium;
 }
 .alert{
     display:none;
+}
+.btnSubmit {
+    border-radius: 10px;
+    background-color: forestgreen;
+    height: 45px;
+    width: 95px;
+    font-size:medium;
 }
 

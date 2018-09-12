@@ -5,60 +5,45 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         function txtChk() {
-            var txtFirst = document.getElementById("<%=txtFirst.ClientID%>");
-            var lblFirst = document.getElementById("<%=lblFirst.ClientID%>");
-            var txtLast = document.getElementById("<%=txtLast.ClientID%>");
-            var lblLast = document.getElementById("<%=lblLast.ClientID%>");
-            var txtPhone = document.getElementById("<%=txtPhone.ClientID%>");
-            var lblPhone = document.getElementById("<%=lblPhone.ClientID%>");
-            var txtEmail = document.getElementById("<%=txtEmail.ClientID%>");
-            var lblEmail = document.getElementById("<%=lblEmail.ClientID%>");
-            var rdbYes = document.getElementById("<%=rdbYes.ClientID%>");
-            var rdbNo = document.getElementById("<%=rdbNo.ClientID%>");
-            var lblReferral = document.getElementById("<%=lblReferral.ClientID%>");
-
             var controls = 0;
 
-            if (txtFirst.value == "") {
-                lblFirst.style.color = "Red";
-                lblFirst.innerHTML = "*First Name";
-            }
-            else {
-                controls += 1;
+            /* ----------------------------------------------- 
+               DECLARING OBJECTS TO HOLD ALL CONTROLS
+             ----------------------------------------------- */
+
+            const labels = document.getElementsByClassName('inputLabel');
+            const texts = document.getElementsByClassName('gezza-field');
+            var rdbYes = document.getElementById("<%=rdbYes.ClientID%>");
+            var rdbNo = document.getElementById("<%=rdbNo.ClientID%>");
+            var rdbYesLead = document.getElementById("<%=rdbYesLead.ClientID%>");
+            var rdbNoLead = document.getElementById("<%=rdbNoLead.ClientID%>");
+            const radiosRef = document.getElementsByClassName('referral');
+            const radiosLead = document.getElementsByClassName('lead');
+                                                                                                      
+            /*--------------------------------------------------------
+                RUNNING FOR LOOPS THROUGH DECLARED OBJECTS TO 
+                HANDLE ANY ERRORS (TERNARY OPERATORS INSIDE FORS)
+                (SECOND EDIT)
+              ------------------------------------------------------- */
+            for (var i = 0; i < 4; i++) {
+                labels[i].style.color = (texts[i].value == "" ? "FireBrick" : "Black");
+                labels[i].innerHTML = (texts[i].value == "" && labels[i].innerHTML.charAt(0) != "*" ? "*" + labels[i].innerHTML : labels[i].innerHTML);
             }
 
-            if (txtLast.value == "") {
-                lblLast.style.color = "Red";
-                lblLast.innerHTML = "*Last Name";
-            }
-            else {
-                controls += 1;
+            labels[4].innerHTML = (rdbYesLead.checked == false && rdbNoLead.checked == false ? "*Please select one" : "");
+            controls = (rdbYesLead.checked == false && rdbNoLead.checked == false ? controls : controls + 1);
+                   
+            labels[5].innerHTML = (rdbYes.checked == false && rdbNo.checked == false ? "*Please select one" : "");
+            controls = (rdbYes.checked == false && rdbNo.checked == false ? controls : controls + 1);
+      
+
+            for (var l = 0; l < 4; l++) {
+                if (texts[l].value != "") {
+                    controls += 1;
+                }
             }
 
-            if (txtPhone.value == "") {
-                lblPhone.style.color = "Red";
-                lblPhone.innerHTML = "*Phone Number";
-            }
-            else {
-                controls += 1;
-            }
-
-            if (txtEmail.value == "") {
-                lblEmail.style.color = "Red";
-                lblEmail.innerHTML = "*Email";
-            }
-            else {
-                controls += 1;
-            }
-
-            if (rdbYes.checked == false && rdbNo.checked == false) {
-                lblReferral.innerHTML = "*Please select one";
-            }
-            else {
-                controls += 1;
-            }
-
-            if (controls < 5) {
+            if (controls < 6) {
                 alert("Fix all errors before submitting");
                 return false;
             }
@@ -66,11 +51,18 @@
             alert("Thank you", "You're done"); 
             window.close();
         }
-        function chkLabel() {
-            var lblReferral = document.getElementById("<%=lblReferral.ClientID%>");
-
-            if (lblReferral.value != "") {
-                lblReferral.innerHTML = "";
+        function chkLabel(x) {
+            if (x == 1) {
+                var lblReferral = document.getElementById("<%=lblReferral.ClientID%>");
+                if (lblReferral.value != "") {
+                    lblReferral.innerHTML = "";
+                }
+            }
+            else {
+                var lblLead = document.getElementById("<%=lblLead.ClientID%>");
+                if (lblLead.value != "") {
+                    lblLead.innerHTML = "";
+                }
             }
             return false;
         }
@@ -79,6 +71,7 @@
             var lblLast = document.getElementById("<%=lblLast.ClientID%>");
             var lblPhone = document.getElementById("<%=lblPhone.ClientID%>");
             var lblEmail = document.getElementById("<%=lblEmail.ClientID%>");
+            var txtPhone = document.getElementById("<%=txtPhone.ClientID%>");
 
             if (x == 1) {
                 if (lblFirst.value = "*First Name") {
@@ -97,6 +90,11 @@
                     lblPhone.innerHTML = "Phone Number";
                     lblPhone.style.color = "Black";
                 }
+
+                if (txtPhone.value == "(___) ___-____") {
+                    txtPhone.setSelectionRange(1, 1);
+                    txtPhone.autofocus = true;
+                }
             }
             else if (x == 4) {
                 if (lblEmail.value = "*Email") {
@@ -109,34 +107,38 @@
         }
         function a(event) {
             var char = event.which;
-            if (char > 31 && char != 32 && (char < 65 || char > 90) && (char < 97 || char > 122)) {
+            if (char != 45) {
+                if (char > 31 && char != 32 && (char < 65 || char > 90) && (char < 97 || char > 122)) {
                 return false;
+                }
             }
         }
     </script>
     <script src="Scripts/sweetalert.min.js"></script>
-    <div id="wrapper" style="height: 710px;">
+    <div id="wrapper" style="height: 859px;">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <h1>Fill out all information:</h1>
                 <br />
                 <div>
                     <div style="width:600px; margin-left:auto; margin-right:auto; resize:both;">
-                        <asp:Label ID="lblFirst" CssClass="inputLabel" runat="server" Text="First Name"></asp:Label><br />
+                        <asp:Label ID="lblFirst" CssClass="inputLabel" runat="server" Text="First Name" ForeColor="Black"></asp:Label><br />
                         <asp:TextBox ID="txtFirst" CssClass="gezza-field" runat="server" 
                             OnClick="return chkText(1)" AutoCompleteType="Disabled"
-                            autocomplete="off" onkeypress="return a(event)"></asp:TextBox>
+                            autocomplete="off" onkeypress="return a(event)" onfocus="return chkText(1)">
+                        </asp:TextBox>
                         <br />
                         <br />
-                        <asp:Label ID="lblLast" CssClass="inputLabel" runat="server" Text="Last Name"></asp:Label><br />
+                        <asp:Label ID="lblLast" CssClass="inputLabel" runat="server" Text="Last Name" ForeColor="Black"></asp:Label><br />
                         <asp:TextBox ID="txtLast" CssClass="gezza-field" runat="server" 
                             OnClick="return chkText(2)" AutoCompleteType="Disabled"
-                            autocomplete="off" onkeypress="return a(event)"></asp:TextBox>
+                            autocomplete="off" onkeypress="return a(event)" onfocus="return chkText(2)"></asp:TextBox>
                         <br />
                         <br />
-                        <asp:Label ID="lblPhone" CssClass="inputLabel" runat="server" Text="Phone Number"></asp:Label><br />
+                        <asp:Label ID="lblPhone" CssClass="inputLabel" runat="server" Text="Phone Number" ForeColor="Black"></asp:Label><br />
                         <asp:TextBox ID="txtPhone" CssClass="gezza-field" runat="server" 
-                            OnClick="return chkText(3)" autocomplete="off" AutoCompleteType="Disabled"></asp:TextBox><br />
+                            OnClick="return chkText(3)" autocomplete="off" 
+                            AutoCompleteType="Disabled" onselect="return chkText(3)"></asp:TextBox><br />
                         <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
                             Mask="(999) 999-9999" MaskType="Number" MessageValidatorTip="True" 
                             TargetControlID="txtPhone" ErrorTooltipEnabled="True" />
@@ -146,10 +148,23 @@
                             Display="Static">
                         </ajaxToolkit:MaskedEditValidator>
                         <br />
-                        <asp:Label for="txtEmail" ID="lblEmail" CssClass="inputLabel" runat="server" Text="Email"></asp:Label><br />
+                        <asp:Label for="txtEmail" ID="lblEmail" CssClass="inputLabel" runat="server" Text="Email" ForeColor="Black"></asp:Label><br />
                         <asp:TextBox ID="txtEmail" CssClass="gezza-field" runat="server" 
-                            OnClick="return chkText(4)" autocomplete="off" AutoCompleteType="Disabled"></asp:TextBox><br />
+                            OnClick="return chkText(4)" autocomplete="off" 
+                            AutoCompleteType="Disabled" onfocus="return chkText(4)"></asp:TextBox><br />
                         <br />
+                        <br />
+                        <br />
+                        <div class="divReferral" style="text-align:left; resize:both;">
+                            <label>Are you looking to buy or sell in the next year?</label>
+                        </div>
+                        <br />
+                        <div>
+                            <asp:Label ID="lblLead" CssClass="inputLabel" runat="server" Text="" ForeColor="FireBrick"></asp:Label>
+                            <br />
+                            <asp:RadioButton ID="rdbYesLead" Text="Yes" class="lead" GroupName="Lead" OnClick="chkLabel(0)" runat="server" ForeColor="Black" />
+                            <asp:RadioButton ID="rdbNoLead" Text="No" class="lead" GroupName="Lead" OnClick="chkLabel(0)" runat="server" ForeColor="Black" />
+                        </div>
                         <br />
                         <br />
                         <div class="divReferral" style="text-align:left; resize:both;">
@@ -157,15 +172,16 @@
                         </div>
                         <br />
                         <div>
-                            <asp:Label ID="lblReferral" CssClass="inputLabel" runat="server" Text="" ForeColor="Red"></asp:Label>
+                            <asp:Label ID="lblReferral" CssClass="inputLabel" runat="server" Text="" ForeColor="FireBrick"></asp:Label>
                             <br />
-                            <asp:RadioButton ID="rdbYes" Text="Yes" GroupName="Referral" OnClick="chkLabel()" runat="server" />
-                            <asp:RadioButton ID="rdbNo" Text="No" GroupName="Referral" OnClick="chkLabel()" runat="server" />
+                            <asp:RadioButton ID="rdbYes" Text="Yes" class="referral" GroupName="Referral" OnClick="chkLabel(1)" runat="server" ForeColor="Black" />
+                            <asp:RadioButton ID="rdbNo" Text="No" class="referral" GroupName="Referral" OnClick="chkLabel(1)" runat="server" ForeColor="Black" />
                         </div>
                         <br />
                         <asp:Button ID="btnSubmit" runat="server" 
+                            style="border-radius:5px; background-color:forestgreen; width:85px; height:45px;"
                             OnClick="btnSubmit_Click" OnClientClick="return txtChk()" 
-                            Text="Submit" />
+                            Text="Submit" Font-Size="Medium" ForeColor="White" />
                         <asp:Label ID="lblText" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                 </div>

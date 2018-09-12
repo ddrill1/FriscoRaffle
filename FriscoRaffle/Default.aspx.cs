@@ -12,6 +12,7 @@ namespace FriscoRaffle
     {
         public Boolean error = false;
         int referral = 2;
+        int lead = 2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,15 @@ namespace FriscoRaffle
             else if (rdbNo.Checked == true)
             {
                 referral = 0;
+            }
+
+            if (rdbYesLead.Checked == true)
+            {
+                lead = 1;
+            }
+            else if (rdbNoLead.Checked == true)
+            {
+                lead = 0;
             }
 
             string connString = ConfigurationManager.ConnectionStrings["FriscoDBConnectionString"].ConnectionString;
@@ -43,6 +53,7 @@ namespace FriscoRaffle
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
                     cmd.Parameters.AddWithValue("@referral", referral);
+                    cmd.Parameters.AddWithValue("@lead", lead);
 
                     cmd.ExecuteNonQuery();
 

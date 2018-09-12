@@ -23,7 +23,7 @@
         padding: 0 2%;
     }
 }
-}
+
 /*small phones/tablets: 481-767 px */ 
 @media only screen and (max-width: 767px) {
     .gezza-field {
@@ -41,8 +41,6 @@
     .divReferral {
         width: 350px;
     }
-
-
 }
 
 /*small phones only: 0-481 px */
